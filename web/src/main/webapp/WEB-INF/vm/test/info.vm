@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>User Info</title>
+</head>
+<body >
+<div>
+    <table>
+        <tr>
+            <td>
+                $!info.cardId
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

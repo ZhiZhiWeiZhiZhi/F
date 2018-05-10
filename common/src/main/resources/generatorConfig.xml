@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<properties resource="config.properties"/>
+	<!--数据库驱动jar -->
+	<classPathEntry location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar" />
+	<context id="mybatis" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		<!-- 通用Mapper的插件:tk.mybatis.mapper.generator.MapperPlugin -->
+		<plugin type="${mapper.plugin}">
+			<!-- mappers:使用的通用Mapper接口 -->
+			<property name="mappers" value="${mapper.Mapper}" />
+		</plugin>
+		<!-- bean 生成带 tostring -->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<!-- bean 实现 Serializable 序列化 -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<jdbcConnection driverClass="${jdbc.driverClass}"
+						connectionURL="${jdbc.url}"
+						userId="${jdbc.user}"
+						password="${jdbc.pwd}">
+		</jdbcConnection>
+		<javaModelGenerator targetPackage="com.f.bean" targetProject="src/main/java/" />
+		<sqlMapGenerator targetPackage="mappers" targetProject="src/main/resources/" />
+		<javaClientGenerator targetPackage="com.f.dao" targetProject="src/main/java/" type="XMLMAPPER" />
+		<table tableName="t_data_type_test" domainObjectName="DataTypeTest"/>
+	</context>
+</generatorConfiguration>

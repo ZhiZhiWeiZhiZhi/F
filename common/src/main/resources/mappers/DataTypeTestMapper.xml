@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.f.dao.DataTypeTestMapper" >
+  <resultMap id="BaseResultMap" type="com.f.bean.DataTypeTest" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="data_type_decimal" property="dataTypeDecimal" jdbcType="DECIMAL" />
+    <result column="data_type_varchar" property="dataTypeVarchar" jdbcType="VARCHAR" />
+    <result column="data_type_datetime" property="dataTypeDatetime" jdbcType="TIMESTAMP" />
+    <result column="data_type_timestamp" property="dataTypeTimestamp" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

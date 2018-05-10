@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="false">
+
+    <bean id="startTimedTask" class="com.f.service.task.StartTimedTask" />
+
+    <bean id="rsh_jobDetail_1"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="startTimedTask" />
+        </property>
+        <property name="targetMethod">
+            <value>startTimedTask</value>
+        </property>
+    </bean>
+
+    <!-- 配置项目启动后任务就执行一次 -->
+    <bean id="rsh_simpleTrigger1" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+        <property name="jobDetail" ref="rsh_jobDetail_1" />
+        <property name="startDelay" value="500" />
+        <property name="repeatInterval" value="0" />
+        <property name="repeatCount" value="0" />
+    </bean>
+    <bean id="jobFactory" class="com.f.utils.MyJobFactory"></bean>
+    <!-- 启动触发器的配置开始 -->
+    <bean name="startQuertz" lazy-init="false" autowire="no"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="rsh_simpleTrigger1" />
+            </list>
+        </property>
+        <property name="jobFactory" ref="jobFactory"></property>
+    </bean>
+</beans>

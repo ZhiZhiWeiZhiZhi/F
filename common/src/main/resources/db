@@ -1,0 +1,10 @@
+CREATE TABLE `t_data_type_test` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'PK',
+	`data_type_decimal` DECIMAL(10,2) NOT NULL COMMENT 'decimal',
+	`data_type_varchar` VARCHAR(50) NOT NULL COMMENT 'varchar',
+	`data_type_datetime` DATETIME NOT NULL COMMENT 'datetime',
+	`data_type_timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'timestamp',
+	PRIMARY KEY (`id`)
+)
+COMMENT='data type test'
+ENGINE=InnoDB;

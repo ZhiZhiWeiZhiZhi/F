@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>User Info</title>
+</head>
+<body >
+<div>
+    <table>
+        #foreach( $info in $list )
+            <tr>
+                <td>
+                    $!info.a
+                </td>
+            </tr>
+        #end
+    </table>
+</div>
+</body>
+</html>
